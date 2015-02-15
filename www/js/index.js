@@ -29,9 +29,10 @@ function show($id){
 
 function search(e){
 	var unicode=e.keyCode? e.keyCode : e.charCode;
-	document.getElementById("search").blur();
 	if(unicode == 13){
 		var search = document.getElementById('search').value;
+		document.getElementById("search").value='';
+		document.getElementById("search").blur();
 		document.getElementById("after").style.display = 'block';
 		document.getElementById("wrap").style.display = 'none';
 		xmlhttp.onreadystatechange = function(){
