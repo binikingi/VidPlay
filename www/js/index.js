@@ -1,5 +1,7 @@
-var xmlhttp = new XMLHttpRequest();
+﻿var xmlhttp = new XMLHttpRequest();
 function home(){
+	document.getElementById("after").style.display = 'none';
+	document.getElementById("after").innerHTML="";
 	xmlhttp.onreadystatechange = function(){
 		document.getElementById("wrap").innerHTML="LOADING...<img src='ajax-loader.gif'/>";
 	  	if (xmlhttp.readyState==4 && xmlhttp.status==200)
@@ -34,9 +36,9 @@ function search(e){
 		xmlhttp.onreadystatechange = function(){
 			document.getElementById("after").innerHTML="LOADING...<img src='ajax-loader.gif'/>";
 		  	if (xmlhttp.readyState==4 && xmlhttp.status==200)
-		    	document.getElementById("after").innerHTML=xmlhttp.responseText;
+		    	document.getElementById("after").innerHTML=decodeURIComponent(xmlhttp.responseText);
 		 };
-		xmlhttp.open("GET","http://codedesign.co.il/sites/forvidplay/get.php?page=index&search="+search,true);
+		xmlhttp.open("GET","http://codedesign.co.il/sites/forvidplay/get.php?page=index&search="+encodeURIComponent(search),true);
 		xmlhttp.send();
 	}
 }
