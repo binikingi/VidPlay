@@ -63,3 +63,13 @@ function sendContact(){
 		xmlhttp.send();
 	}
 }
+
+function report(id){
+	var r = confirm("Are you sure this movie isn't working?");
+	if (r == true){
+		xmlhttp.open("GET","http://codedesign.co.il/sites/forvidplay/get.php?page=report&movieId="+id,false);
+		xmlhttp.send();
+	    alert("Ok Thank You For Your Support!");
+	    showHome();
+	  }
+}
